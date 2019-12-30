@@ -9,17 +9,15 @@ public class Main {
     private static final String CITY = "Manchester";
     private static final String API_KEY = "QRk0JdS0KyfBvAAjYzeaPmcAMWTEU4V1";
     private static final String CURRENT_DATE = new SimpleDateFormat("y-MM-d").format(new Date());
-    private static final String DATE = "2020-04-18";
+    private static final String DATE = "2020-03-28";
 
     public static void main(String[] args) {
         int i = 0;
-        while (true) {
+        while (i < 50) {
             try {
                 JsonUtils.parseCurrentJson(JsonUtils.createResponseAsString(String.format(LINK, i, CITY, API_KEY)), DATE);
                 i++;
-            } catch (IOException e) {
-                System.out.println("No more pages with events");
-                break;
+            } catch (IOException ignored) {
             }
         }
     }
