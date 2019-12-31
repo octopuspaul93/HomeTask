@@ -37,14 +37,14 @@ public class JsonUtils {
                     for (int i = 0; i < eventsArray.size(); i++) {
                         JSONObject eventData = (JSONObject) eventsArray.get(i);
                         JSONObject eventStart = (JSONObject) ((JSONObject) eventData.get("dates")).get("start");
-                        System.out.println("Event №:" + eventsCounter + "\n" + eventData.get("name") + "\nDate: " + eventStart.get("localDate") + "; Time: " + eventStart.get("localTime"));
-                        System.out.println();
-                        eventsCounter++;
-//                        if (eventStart.get("localDate").equals(currentDate)) {
-//                            System.out.println("Event №:" + eventsCounter + "\n" + eventData.get("name") + "\nDate: " + eventStart.get("localDate") + "; Time: " + eventStart.get("localTime"));
-//                            System.out.println();
-//                            eventsCounter++;
-//                        }
+//                        System.out.println("Event №:" + eventsCounter + "\n" + eventData.get("name") + "\nDate: " + eventStart.get("localDate") + "; Time: " + eventStart.get("localTime"));
+//                        System.out.println();
+//                        eventsCounter++;
+                        if (eventStart.get("localDate").equals(currentDate)) {
+                            System.out.println("Event №:" + eventsCounter + "\n" + eventData.get("name") + "\nDate: " + eventStart.get("localDate") + "; Time: " + eventStart.get("localTime"));
+                            System.out.println();
+                            eventsCounter++;
+                        }
                     }
                 } else {
                     System.out.println("There are no events!");

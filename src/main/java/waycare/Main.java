@@ -15,7 +15,7 @@ public class Main {
         int i = 0;
         while (i < 50) {
             try {
-                JsonUtils.parseCurrentJson(JsonUtils.createResponseAsString(String.format(LINK, i, CITY, API_KEY)), DATE);
+                JsonUtils.parseCurrentJson(JsonUtils.createResponseAsString(String.format(LINK, i, CITY, API_KEY)), CURRENT_DATE);
                 i++;
             } catch (IOException ignored) {
             }
