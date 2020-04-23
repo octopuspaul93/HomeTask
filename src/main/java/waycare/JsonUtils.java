@@ -17,7 +17,6 @@ public class JsonUtils {
     public static String createResponseAsString(String link) throws IOException {
         URL url = new URL(link);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String inputLine;
         StringBuilder response = new StringBuilder();
@@ -34,8 +33,8 @@ public class JsonUtils {
             if (jsonObject != null) {
                 JSONArray eventsArray = (JSONArray) jsonObject.get("events");
                 if (eventsArray.size() != 0) {
-                    for (int i = 0; i < eventsArray.size(); i++) {
-                        JSONObject eventData = (JSONObject) eventsArray.get(i);
+                    for (Object o : eventsArray) {
+                        JSONObject eventData = (JSONObject) o;
                         JSONObject eventStart = (JSONObject) ((JSONObject) eventData.get("dates")).get("start");
 //                        System.out.println("Event №:" + eventsCounter + "\n" + eventData.get("name") + "\nDate: " + eventStart.get("localDate") + "; Time: " + eventStart.get("localTime"));
 //                        System.out.println();
